@@ -2,14 +2,12 @@ package com.example.javacoffeespring.controllers;
 
 import com.example.javacoffeespring.models.MenuItem;
 import com.example.javacoffeespring.models.UserAccount;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
 @RestController
+@CrossOrigin
 public class MenuController {
 
     @GetMapping("/getFood")
