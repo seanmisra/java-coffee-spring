@@ -2,7 +2,7 @@ package com.example.javacoffeespring.models;
 
 import jakarta.persistence.*;
 
-@Table
+@Table(name = "user_account")
 @Entity
 public class UserAccount {
 
