@@ -16,7 +16,7 @@ public class UserService {
     UserRepository userRepository;
 
     public UserResponse addUserAccount (UserAccount userAccount) {
-        UserAccount existingAccount = this.getUserAccountWrapper(userAccount.getEmail());
+        UserAccount existingAccount = this.getUserAccount(userAccount.getEmail());
         UserResponse userResponse = new UserResponse();
         if (existingAccount != null) {
             userResponse.setMessage("ERROR: Account already exists");
@@ -28,7 +28,7 @@ public class UserService {
         return userResponse;
     }
     public boolean validateUser(LoginAttempt loginAttempt) {
-        UserAccount existingAccount = this.getUserAccountWrapper(loginAttempt.getEmail());
+        UserAccount existingAccount = this.getUserAccount(loginAttempt.getEmail());
 
         if (existingAccount == null) {
             return false;
@@ -37,7 +37,7 @@ public class UserService {
         }
     }
 
-    public UserAccount getUserAccountWrapper(String email) {
+    public UserAccount getUserAccount(String email) {
         List<UserAccount> userAccountList = this.userRepository.getUserAccount(email);
 
         if (userAccountList.isEmpty()) {

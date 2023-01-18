@@ -5,7 +5,6 @@ import com.example.javacoffeespring.models.UserAccount;
 import com.example.javacoffeespring.models.UserResponse;
 import com.example.javacoffeespring.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,6 +21,11 @@ public class UserController {
     @PostMapping("/createAccount")
     public UserResponse createAccount(@RequestBody UserAccount userAccount) {
         return this.userService.addUserAccount(userAccount);
+    }
+
+    @PostMapping("/loadAccount")
+    public UserAccount loadAccount(@RequestBody LoginAttempt loginAttempt) {
+        return this.userService.getUserAccount(loginAttempt.getEmail());
     }
 
 }
