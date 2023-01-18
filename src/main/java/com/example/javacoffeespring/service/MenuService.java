@@ -1,8 +1,7 @@
 package com.example.javacoffeespring.service;
 
 import com.example.javacoffeespring.models.MenuItem;
-import com.example.javacoffeespring.controllers.MenuRepository;
-import com.example.javacoffeespring.models.MenuItemType;
+import com.example.javacoffeespring.service.repository.MenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,13 +39,7 @@ public class MenuService {
         return allDrinkItems;
     }
 
-    public String addMenuItem(String name, String description, Float price, String menuItemType) {
-        MenuItem menuItem = new MenuItem();
-        menuItem.setName(name);
-        menuItem.setDescription(description);
-        menuItem.setPrice(price);
-        menuItem.setMenuItemType(menuItemType);
-
+    public String addMenuItem(MenuItem menuItem) {
         repository.save(menuItem);
         return "Success";
     }
